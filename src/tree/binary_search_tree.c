@@ -44,7 +44,7 @@ void BSTInsert(pAttraction *root, pAttraction e){
 /** 删除节点 ***/
 int BSTDelete(pAttraction*root, char* name, char* go_off, pAttraction *parent){
 
-    if(root == NULL){
+    if((*root) == NULL){
         return 0;
     }
     if((strcmp((*root)->name,name)==0 && strcmp((*root)->go_off, go_off)==0)){//找到了待删除的节点
