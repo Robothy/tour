@@ -1,4 +1,4 @@
-#define TEST_SINGLY_LINKED_LIST_USER
+//#define TEST_SINGLY_LINKED_LIST_USER
 
 #ifdef TEST_SINGLY_LINKED_LIST_USER
 
@@ -21,6 +21,7 @@ void CreateLinkedListUser(pUser *root){
         u->age = users[i][3];
         u->next = NULL;
         InsertUser(root, u);
+
     }
 }
 

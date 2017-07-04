@@ -1,8 +1,10 @@
+//#define TEST_BINARY_SEARCH_TREE
+
 /**
 *   ¶þ²æÅÅÐòÊ÷µ¥Ôª²âÊÔ
 */
 
-//#ifdef TEST_BINARY_SEARCH_TREE
+#ifdef TEST_BINARY_SEARCH_TREE
 
 #include "../tree/binary_search_tree.h"
 
@@ -182,7 +184,7 @@ int main(){
 
 
 
-//#endif // TEST_BINARY_SEARCH_TREE
+#endif // TEST_BINARY_SEARCH_TREE
 
 
 
