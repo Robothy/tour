@@ -12,6 +12,7 @@ typedef struct Usr{
     char name[30];
     char sex;
     short age;
+    char pwd[20];
     struct Usr *next;
 } User, *pUser;
 
