@@ -1,5 +1,5 @@
-/** ´æ´¢ÓÃ»§ĞÅÏ¢µÄµ¥Á´±í */
-/** ÓÃ»§µÄÎ¨Ò»±êÊ¶ĞÅÏ¢ÎªID, ¼´ID²»Í¬£¬ÆäËüĞÅÏ¢ÏàÍ¬µÄÓÃ»§ÊÓÎª²»Í¬µÄÓÃ»§ */
+ï»¿/** å­˜å‚¨ç”¨æˆ·ä¿¡æ¯çš„å•é“¾è¡¨ */
+/** ç”¨æˆ·çš„å”¯ä¸€æ ‡è¯†ä¿¡æ¯ä¸ºID, å³IDä¸åŒï¼Œå…¶å®ƒä¿¡æ¯ç›¸åŒçš„ç”¨æˆ·è§†ä¸ºä¸åŒçš„ç”¨æˆ· */
 
 #ifndef SINGLY_LINKED_LIST_USER_H
 #define SINGLY_LINKED_LIST_USER_H
@@ -16,19 +16,19 @@ typedef struct Usr{
     struct Usr *next;
 } User, *pUser;
 
-/** ²åÈëÓÃ»§ */
+/** æ’å…¥ç”¨æˆ· */
 int InsertUser(pUser*, pUser);
 
-/** É¾³ıÓÃ»§ */
+/** åˆ é™¤ç”¨æˆ· */
 int DeleteUser(pUser*, char*);
 
-/** ²éÕÒÓÃ»§ */
+/** æŸ¥æ‰¾ç”¨æˆ· */
 pUser SearchUser(pUser, char*);
 
-/** ´òÓ¡µ¥¸öÓÃ»§ĞÅÏ¢ */
+/** æ‰“å°å•ä¸ªç”¨æˆ·ä¿¡æ¯ */
 void DisplayUser(pUser);
 
-/** ´òÓ¡ËùÓĞÓÃ»§ĞÅÏ¢ */
+/** æ‰“å°æ‰€æœ‰ç”¨æˆ·ä¿¡æ¯ */
 void DisplayAllUser(pUser);
 
 

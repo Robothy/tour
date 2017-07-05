@@ -1,7 +1,7 @@
-//#define TEST_BINARY_SEARCH_TREE
+ï»¿//#define TEST_BINARY_SEARCH_TREE
 
 /**
-*   ¶ş²æÅÅĞòÊ÷µ¥Ôª²âÊÔ
+*   äºŒå‰æ’åºæ ‘å•å…ƒæµ‹è¯•
 */
 
 #ifdef TEST_BINARY_SEARCH_TREE
@@ -42,16 +42,16 @@ int test_compare_node(){
     return 1;
 }
 
-/** ÅĞ¶ÏÊÇ·ñÎª¶ş²æÅÅĞòÊ÷ */
+/** åˆ¤æ–­æ˜¯å¦ä¸ºäºŒå‰æ’åºæ ‘ */
 int isBST(pAttraction root){
     if(root == NULL) return 1;
 
     if(root->lchild != NULL && compare_node(root,root->lchild) < 0) {
-        return 0;    //×ó×ÓÊ÷²»Âú×ã
+        return 0;    //å·¦å­æ ‘ä¸æ»¡è¶³
     }else{
         return isBST(root->lchild);
     }
-    if(root->rchild != NULL && compare_node(root, root->rchild) > 0 ){ //ÓÒ×ÓÊ÷²»Âú×ã
+    if(root->rchild != NULL && compare_node(root, root->rchild) > 0 ){ //å³å­æ ‘ä¸æ»¡è¶³
         return 0;
     }else{
         return isBST(root->rchild);
@@ -98,7 +98,7 @@ int test_BSTsearch(){
     char name[50];
     char go_off[11];
 
-    strcpy(name, "ShangHai");       //ÄÜÕÒµ½
+    strcpy(name, "ShangHai");       //èƒ½æ‰¾åˆ°
     strcpy(go_off, "2017-07-20");
     pAttraction rst = BSTSearch(root, name, go_off);
 
@@ -106,14 +106,14 @@ int test_BSTsearch(){
         return 0;
     }
 
-    strcpy(name, "ShangHais");      //²»ÄÜÕÒµ½
+    strcpy(name, "ShangHais");      //ä¸èƒ½æ‰¾åˆ°
     strcpy(go_off, "2017-07-20");
     rst = BSTSearch(root, name,go_off);
     if(rst != NULL){
         return 0;
     }
 
-    strcpy(name, "ShangHai\0");      //²»ÄÜÕÒµ½
+    strcpy(name, "ShangHai\0");      //ä¸èƒ½æ‰¾åˆ°
     strcpy(go_off, "2017-07-30");
     rst = BSTSearch(root, name,go_off);
     if(rst != NULL){

@@ -1,4 +1,4 @@
-#ifndef SINGLY_LINKED_LIST_H
+﻿#ifndef SINGLY_LINKED_LIST_H
 #define SINGLY_LINKED_LIST_H
 
 #include <stdio.h>
@@ -13,7 +13,7 @@ typedef struct Signup{
 
 int InsertSignup(pSign*, pSign);
 
-int DeleteSignup(pSign*, pSign);
+int DeleteSignup(pSign*, char*);
 
 pSign SearchSignup(pSign, char*);
 
@@ -21,5 +21,6 @@ void DisplaySign(pSign s);
 
 void DisplayAllSign(pSign s);
 
+int CountSignNumber(pSign root);
 #endif // SINGLY_LINKED_LIST_H
 

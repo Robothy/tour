@@ -1,11 +1,11 @@
-#include "binary_search_tree.h"
+ï»¿#include "binary_search_tree.h"
 
 /**
-*   ¹¦ÄÜ£º ËÑË÷¶ş²æÊ÷
-*   ²ÎÊı£º pAttraction root ¶ş²æÅÅĞòÊ÷µÄ¸ù½Úµã
-*          char *name      ¾°µãÃû³Æ
-*          char *go_off     ³ö·¢Ê±¼ä
-*   ·µ»ØÖµ£ºÈôÕÒµ½£¬Ôò·µ»Ø½ÚµãÖ¸Õë£»·ñÔò·µ»Ø¿ÕÖ¸Õë
+*   åŠŸèƒ½ï¼š æœç´¢äºŒå‰æ ‘
+*   å‚æ•°ï¼š pAttraction root äºŒå‰æ’åºæ ‘çš„æ ¹èŠ‚ç‚¹
+*          char *name      æ™¯ç‚¹åç§°
+*          char *go_off     å‡ºå‘æ—¶é—´
+*   è¿”å›å€¼ï¼šè‹¥æ‰¾åˆ°ï¼Œåˆ™è¿”å›èŠ‚ç‚¹æŒ‡é’ˆï¼›å¦åˆ™è¿”å›ç©ºæŒ‡é’ˆ
 */
 pAttraction BSTSearch(pAttraction root,char *name, char *go_off){
     if(root==NULL ||
@@ -23,54 +23,54 @@ pAttraction BSTSearch(pAttraction root,char *name, char *go_off){
 
 
 /**
-*   ¹¦ÄÜ£ºÍù¶ş²æÊ÷ÖĞ²åÈë½Úµã
-*   ²ÎÊı£º pAttraction root    ¶ş²æÊ÷µÄ¸ù½Úµã
-*           pAttaction e        ´ı²åÈëµÄ½Úµã
+*   åŠŸèƒ½ï¼šå¾€äºŒå‰æ ‘ä¸­æ’å…¥èŠ‚ç‚¹
+*   å‚æ•°ï¼š pAttraction root    äºŒå‰æ ‘çš„æ ¹èŠ‚ç‚¹
+*           pAttaction e        å¾…æ’å…¥çš„èŠ‚ç‚¹
 *
 */
 void BSTInsert(pAttraction *root, pAttraction e){
     if((*root) == NULL || e == NULL){
         (*root) = e;
     }
-    else if(compare_node(*root,e) < 0){ //Ó¦¸Ã·Åµ½ÓÒ±ß
+    else if(compare_node(*root,e) < 0){ //åº”è¯¥æ”¾åˆ°å³è¾¹
         BSTInsert(&((*root)->rchild), e);
-    }else if(compare_node(*root, e) > 0){ //Ó¦¸Ã·Åµ½×ó±ß
+    }else if(compare_node(*root, e) > 0){ //åº”è¯¥æ”¾åˆ°å·¦è¾¹
         BSTInsert(&((*root)->lchild), e);
-    }else{  //²»²åÈë,ÌáÊ¾¾¯¸æĞÅÏ¢
+    }else{  //ä¸æ’å…¥,æç¤ºè­¦å‘Šä¿¡æ¯
         printf("Can not insert, The node with name %s , go_off %s already exists.\n",e->name, e->go_off);
     }
 }
 
-/** É¾³ı½Úµã ***/
+/** åˆ é™¤èŠ‚ç‚¹ ***/
 int BSTDelete(pAttraction*root, char* name, char* go_off, pAttraction *parent){
 
     if((*root) == NULL){
         return 0;
     }
-    if((strcmp((*root)->name,name)==0 && strcmp((*root)->go_off, go_off)==0)){//ÕÒµ½ÁË´ıÉ¾³ıµÄ½Úµã
+    if((strcmp((*root)->name,name)==0 && strcmp((*root)->go_off, go_off)==0)){//æ‰¾åˆ°äº†å¾…åˆ é™¤çš„èŠ‚ç‚¹
         pAttraction l = (*root)->lchild;
         pAttraction r = (*root)->rchild;
-        pAttraction self = *root;    //´ıÉ¾³ıµÄ½Úµã
-        if(parent == NULL){ //Ê÷µÄ¸ù½Úµã¼´ÎªÒªÉ¾³ıµÄ½Úµã
+        pAttraction self = *root;    //å¾…åˆ é™¤çš„èŠ‚ç‚¹
+        if(parent == NULL){ //æ ‘çš„æ ¹èŠ‚ç‚¹å³ä¸ºè¦åˆ é™¤çš„èŠ‚ç‚¹
             if(l == NULL){
                 *root = r;
             }else{
-                BSTInsert(&l, r);   //½«ÓÒ×ÓÊ÷ºÏ²¢µ½×ó×ÓÊ÷ÉÏ
+                BSTInsert(&l, r);   //å°†å³å­æ ‘åˆå¹¶åˆ°å·¦å­æ ‘ä¸Š
                 *root = l;
             }
         }else{
             if(l == NULL) (*root) = r;
             else if(r == NULL) (*root) = l;
-            else{   //×óÓÒ×ÓÊ÷¾ù²»Îª¿Õ
+            else{   //å·¦å³å­æ ‘å‡ä¸ä¸ºç©º
                 pAttraction temp = r;
                 while(temp->lchild!=NULL){
                     temp = temp->lchild;
                 }
-                temp->lchild = l;   //½«×ó×ÓÊ÷·Åµ½ÓÒ×ÓÊ÷µÄ×î×ó±ß
+                temp->lchild = l;   //å°†å·¦å­æ ‘æ”¾åˆ°å³å­æ ‘çš„æœ€å·¦è¾¹
                 (*root) = r;
             }
         }
-        free(self);//ÊÍ·ÅÄÚ´æ
+        free(self);//é‡Šæ”¾å†…å­˜
         return 1;
     }
     else if(strcmp((*root)->name, name)<0 ||
@@ -84,14 +84,14 @@ int BSTDelete(pAttraction*root, char* name, char* go_off, pAttraction *parent){
 
 
 /**
-*   ×Ô¶¨Òå±È½ÏÁ½¸ö½Úµã´óĞ¡µÄ¹æÔò
+*   è‡ªå®šä¹‰æ¯”è¾ƒä¸¤ä¸ªèŠ‚ç‚¹å¤§å°çš„è§„åˆ™
 **/
 int compare_node(pAttraction l, pAttraction r){
-    if(strcmp(l->name,r->name) > 0){    //¾°µãÃû³Æ×ó±ß´óÓÚÓÒ±ß
+    if(strcmp(l->name,r->name) > 0){    //æ™¯ç‚¹åç§°å·¦è¾¹å¤§äºå³è¾¹
         return 1;
-    }else if(strcmp(l->name, r->name) < 0 ){    //¾°µãÃû³Æ×ó±ßĞ¡ÓÚÓÒ±ß
+    }else if(strcmp(l->name, r->name) < 0 ){    //æ™¯ç‚¹åç§°å·¦è¾¹å°äºå³è¾¹
         return -1;
-    }else{  //¾°µãÃû³Æ×óÓÒÁ½±ßÏàµÈ£¬ ±È½Ï³ö·¢Ê±¼ä
+    }else{  //æ™¯ç‚¹åç§°å·¦å³ä¸¤è¾¹ç›¸ç­‰ï¼Œ æ¯”è¾ƒå‡ºå‘æ—¶é—´
         if(strcmp(l->go_off, r->go_off)>0){
             return 1;
         }else if(strcmp(l->go_off, r->go_off)<0){
@@ -101,3 +101,10 @@ int compare_node(pAttraction l, pAttraction r){
         }
     }
 }
+
+/** ç»Ÿè®¡èŠ‚ç‚¹çš„æ•°é‡ **/
+int count_BSTnode_num(pAttraction attr){
+    if(attr == NULL) return 0;
+    return 1 + count_BSTnode_num(attr->lchild) + count_BSTnode_num(attr->rchild);
+}
+

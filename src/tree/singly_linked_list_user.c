@@ -1,4 +1,4 @@
-#include "singly_linked_list_user.h"
+ï»¿#include "singly_linked_list_user.h"
 
 int InsertUser(pUser *root, pUser u){
     if((*root) == NULL){
@@ -29,10 +29,9 @@ int DeleteUser(pUser *root, char *id){
         (*root) = (*root)->next;
     }else{
         while(p->next != NULL){
-            if(strcmp(p->next->id,id) == 0){//ÕÒµ½´ýÉ¾³ý½Úµã
+            if(strcmp(p->next->id,id) == 0){//æ‰¾åˆ°å¾…åˆ é™¤èŠ‚ç‚¹
+                free(p->next);
                 p->next = p->next->next;
-                p = p->next;
-                free(p);
                 return 1;
             }
             p = p->next;
